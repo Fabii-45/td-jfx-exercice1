@@ -32,8 +32,17 @@ public class Ajout extends Vue implements VueInteractive {
 
 
     public static Ajout creerVue(Controleur controleur, Stage stage) {
-        Ajout ajout = new Ajout();
-        return ajout;
+        FXMLLoader fxmlLoader = new FXMLLoader(Ajout.class.getResource("ajout.fxml"));
+        try {
+            fxmlLoader.load();
+        } catch (IOException e) {
+            throw new RuntimeException("Probleme de construction de vue Ajout");
+        }
+        Ajout vue = fxmlLoader.getController();
+        vue.setControleur(controleur);
+        vue.setStage(stage);
+        vue.setScene(new Scene(vue.mainbox,600,700));
+        return vue;
     }
 
     @Override
@@ -41,13 +50,25 @@ public class Ajout extends Vue implements VueInteractive {
         this.controleur=controleur;
     }
 
-    public void show() {
-
-    }
-
     public void afficherErreur(String erreur_de_genre, String s) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText("ERREUR DE GENRE");
+            alert.setContentText("On peut que mettre les genres ACTION | COMEDIE | THRILLER | AVENTURE.");
+            alert.showAndWait();
     }
 
     public void viderChamps() {
+        titre.clear();
+        realisateur.clear();
+        genre.clear();
+
+    }
+
+    public void creerFilm(ActionEvent actionEvent) {
+        controleur.creerFilm(titre.getText(), genre.getText(),realisateur.getText());
+    }
+
+    public void retourMenu(ActionEvent actionEvent) {
+        controleur.gotoMenu();
     }
 }

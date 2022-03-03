@@ -27,9 +27,9 @@
                   <Insets left="240.0" />
                </GridPane.margin></Label>
             <Button mnemonicParsing="false" onAction="#creerFilm" text="Valider" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField GridPane.columnIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="titre" GridPane.columnIndex="1" />
+            <TextField fx:id="genre" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="realisateur" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label text="Realisateur" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets left="207.0" />
@@ -37,5 +37,6 @@
             </Label>
          </children>
       </GridPane>
+      <Button mnemonicParsing="false" onAction="#retourMenu" text="Retour" />
    </children>
 </VBox>

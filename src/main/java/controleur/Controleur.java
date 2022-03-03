@@ -60,10 +60,12 @@ public class Controleur {
     public void creerFilm(String titre, String genre, String realisateur)  {
         try {
             facadeScreen.creerFilm(titre, realisateur,genre);
+
             showMenu();
+            ajout.viderChamps();
 
         } catch (GenreNotFoundException e) {
-            ajout.afficherErreur("Erreur de genre","Genre inexistant !");
+            ajout.afficherErreur("Erreur de genre","On peut que mettre les genres ACTION | COMEDIE | THRILLER | AVENTURE.");
             ajout.viderChamps();
             showAjout();
         }
@@ -75,7 +77,10 @@ public class Controleur {
 }
 
     public void gotoAjout() {
-
         showAjout();
     }
+
+    public Collection<Film> getFilms() {
+        return this.facadeScreen.getAllFilms();
     }
+}

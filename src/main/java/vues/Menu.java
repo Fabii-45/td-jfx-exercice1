@@ -53,12 +53,7 @@ public class Menu extends Vue implements VueInteractive {
         BorderPane.setAlignment(vBox, Pos.CENTER);
 
         this.ajouter.setOnAction(actionEvent -> controleur.showAjout());
-        this.consulter.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                controleur.showFilms();
-            }
-        });
+        this.consulter.setOnAction(actionEvent -> controleur.showFilms());
 
         this.setScene(new Scene(this.borderPaneMenu, 600, 700));
 

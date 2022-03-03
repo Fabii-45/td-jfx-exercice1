@@ -3,7 +3,7 @@ package vues;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class Vue {
+abstract class Vue {
 
     private Stage stage;
     private Scene scene;

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox fx:id="mainbox" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vues.TousLesFilms">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="606.0" text="Tous les films ">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="listeFilms" layoutY="48.0" prefHeight="314.0" prefWidth="606.0" />
+      <Button layoutX="268.0" layoutY="364.0" mnemonicParsing="false" onAction="#retourMenu" prefHeight="35.0" prefWidth="71.0" text="Retour" />
+   </children>
+</VBox>

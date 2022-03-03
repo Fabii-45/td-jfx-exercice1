@@ -18,9 +18,24 @@ public class TousLesFilms extends Vue implements VueInteractive {
 
     private Controleur controleur;
 
+    @FXML
+    VBox mainbox;
+
+    @FXML
+    TextArea listeFilms;
+
     public static TousLesFilms creerVue(Controleur controleur, Stage stage) {
-        TousLesFilms tousLesFilms = new TousLesFilms();
-        return tousLesFilms;
+        FXMLLoader fxmlLoader = new FXMLLoader(Ajout.class.getResource("tousLesFilms.fxml"));
+        try {
+            fxmlLoader.load();
+        } catch (IOException e) {
+            throw new RuntimeException("Probleme de construction de vue Tous Les Films");
+        }
+        TousLesFilms vue = fxmlLoader.getController();
+        vue.setControleur(controleur);
+        vue.setStage(stage);
+        vue.setScene(new Scene(vue.mainbox,600,700));
+        return vue;
     }
 
     @Override
@@ -29,5 +44,16 @@ public class TousLesFilms extends Vue implements VueInteractive {
     }
 
     public void show() {
+        Collection<Film> films = controleur.getFilms();
+        String affichageFilms = " ";
+        for(Film f:films){
+            affichageFilms += "Titre : "+f.getTitre()+" Genre : "+f.getGenre()+" Réalisateur : "+f.getRealisateur()+" \n ";
+        }
+        listeFilms.setText(affichageFilms);
+        super.show();
+    }
+
+    public void retourMenu(ActionEvent actionEvent) {
+        controleur.gotoMenu();
     }
 }
