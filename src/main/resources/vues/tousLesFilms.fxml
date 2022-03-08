@@ -11,7 +11,7 @@
             <Font size="28.0" />
          </font>
       </Label>
-      <TextArea fx:id="listeFilms" layoutY="48.0" prefHeight="314.0" prefWidth="606.0" />
+      <ListView fx:id="listeFilms" prefHeight="295.0" prefWidth="600.0" />
       <Button layoutX="268.0" layoutY="364.0" mnemonicParsing="false" onAction="#retourMenu" prefHeight="35.0" prefWidth="71.0" text="Retour" />
    </children>
 </VBox>

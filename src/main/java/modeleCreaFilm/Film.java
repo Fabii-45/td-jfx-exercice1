@@ -35,6 +35,13 @@ public class Film {
         return id;
     }
 
-
-
+    @Override
+    public String toString() {
+        return "Film{" +
+                "id=" + id +
+                ", titre='" + titre + '\'' +
+                ", realisateur='" + realisateur + '\'' +
+                ", genre=" + genre +
+                '}';
+    }
 }

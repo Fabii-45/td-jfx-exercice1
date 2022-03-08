@@ -8,6 +8,7 @@ import javafx.application.Platform;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import modeleCreaFilm.Film;
+import modeleCreaFilm.GenreFilm;
 import vues.Ajout;
 import vues.Menu;
 import vues.TousLesFilms;
@@ -36,8 +37,8 @@ public class Controleur {
     }
 
     public void showFilms(){
-
-       tousLesFilms.show();
+        tousLesFilms.chargerFilms();
+        tousLesFilms.show();
     }
     public void showAjout(){
         ajout.show();
@@ -45,6 +46,7 @@ public class Controleur {
 
 
     public void run() {
+        ajout.chargerGenre();
         showMenu();
     }
 
@@ -82,5 +84,9 @@ public class Controleur {
 
     public Collection<Film> getFilms() {
         return this.facadeScreen.getAllFilms();
+    }
+
+    public Collection<GenreFilm> getGenres() {
+        return this.facadeScreen.getAllGenres();
     }
 }
